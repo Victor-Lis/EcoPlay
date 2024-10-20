@@ -63,25 +63,24 @@ void wifiConfig(){
 
 void saveCap(){
   if (WiFi.status() == WL_CONNECTED) {
-      Serial.println("+");
+    Serial.println("+");
 
-      HTTPClient client;
+    HTTPClient client;
 
-      client.begin(apiUrl);
+    client.begin(apiUrl);
    
-      int httpCode = client.GET();
+    int httpCode = client.GET();
       
-      if (httpCode > 0) {
-        String payload = client.getString();
-        Serial.println("\nStatuscode: " + String(httpCode));
-        Serial.println(payload);
-      } else {
-        Serial.println("Error on HTTP Request");
-        Serial.println("\nStatuscode: " + String(httpCode));
-      }
-
-      delay(50);
+    if (httpCode > 0) {
+      String payload = client.getString();
+      Serial.println("\nStatuscode: " + String(httpCode));
+      Serial.println(payload);
+    } else {
+      Serial.println("Error on HTTP Request");
+      Serial.println("\nStatuscode: " + String(httpCode));
     }
+
+    //delay(50);
   }  
 }
 
@@ -99,14 +98,20 @@ const int sensor = 34;
 
 boolean hasMoviment(){
   //return (digitalRead(sensor) == LOW);
-  return (analogRead(sensor) < 550);
   Serial.println(analogRead(sensor));
+  return (analogRead(sensor) < 3000);
 }
 
 // -------------------------------------------------------------------------------- Variáveis de "Software" v
 
 int meta = 10000;
 int alcancado = 0;
+
+void verifyGoal(){
+  if(alcancado >= meta){
+    alcancado = 0; 
+  }
+}
 
 void increment(){
   if(hasMoviment()){
@@ -115,14 +120,8 @@ void increment(){
     saveCap();
     
     verifyGoal();
-    delay(100);
+    //delay(25);
   }  
-}
-
-void verifyGoal(){
-  if(alcancado >= meta){
-    alcancado = 0; 
-  }
 }
 
 // -------------------------------------------------------------------------------- Main v
