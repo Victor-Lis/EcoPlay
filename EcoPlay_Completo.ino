@@ -45,7 +45,7 @@ void setPlacar(int meta, int alcancado) {
 const char* ssid = "Oalis";
 const char* password = "oalis636807";
 
-const String apiUrl = "https://ecoplay-landingpage.vercel.app/api/tampinha";
+const String apiUrl = "https://eco-play.vercel.app/api/tampinha";
 
 void wifiConfig(){
   WiFi.begin(ssid, password);
@@ -70,6 +70,8 @@ void saveCap(){
     client.begin(apiUrl);
    
     int httpCode = client.GET();
+
+    client.addHeader("Connection", "close");
       
     if (httpCode > 0) {
       String payload = client.getString();
