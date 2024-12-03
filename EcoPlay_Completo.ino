@@ -42,10 +42,10 @@ void setPlacar(int meta, int alcancado) {
 #include <HTTPClient.h>;
 #include <ArduinoJson.h>;
 
-const char* ssid = "Oalis";
-const char* password = "oalis636807";
+const char* ssid = "Nome da rede";
+const char* password = "senha da rede";
 
-const String apiUrl = "https://eco-play.vercel.app/api/tampinha";
+const String apiUrl = "api/endpoint";
 
 void wifiConfig(){
   WiFi.begin(ssid, password);
@@ -81,9 +81,9 @@ void saveCap(){
       Serial.println("Error on HTTP Request");
       Serial.println("\nStatuscode: " + String(httpCode));
     }
-
-    //delay(50);
-  }  
+  }else{
+         delay(100); 
+  }
 }
 
 // -------------------------------------------------------------------------------- Sensor v
@@ -122,7 +122,6 @@ void increment(){
     saveCap();
     
     verifyGoal();
-    //delay(25);
   }  
 }
 
