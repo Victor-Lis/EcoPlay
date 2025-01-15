@@ -63,4 +63,4 @@ Para mais detalhes técnicos sobre a implementação, consulte a documentação 
 
 <br>
 
-# ⚡ Desenvolvido com 💙 por Victor Lis 🚀
+<div style="width: 100%;"><h2 align="center" style="margin: 0 auto;">⚡ Desenvolvido com 💙 por Victor Lis 🚀</h2></div>
