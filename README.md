@@ -1,4 +1,4 @@
-# EcoPlay - Sistema Gamificado de Reciclagem
+# EcoPlay
 
 ## 📝 Descrição
 O EcoPlay é um projeto de hardware e software que visa promover a reciclagem e sustentabilidade através da gamificação. Inspirado no projeto "Tampinha do Bem", o sistema utiliza um ESP32 e display LED para transformar a coleta de tampinhas em uma atividade interativa e educativa.
